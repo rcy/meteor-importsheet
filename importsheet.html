@@ -1,0 +1,17 @@
+<template name="importSheetUI">
+  <fieldset>
+    <textarea rows="18" class="form-control" placeholder="Paste google spreadsheet cells here..."></textarea>
+  </fieldset>
+
+  <fieldset>
+    {{#if canImport.collection}}
+      <button class="import btn btn-success">Import {{canImport.collection}}</button>
+    {{else}}
+      {{#if canImport.error}}
+        <button class="btn btn-danger disabled">{{canImport.error}}</button>
+      {{else}}
+        <button class="btn btn-default disabled">Paste data above</button>
+      {{/if}}
+    {{/if}}
+  </fieldset>
+</template>
