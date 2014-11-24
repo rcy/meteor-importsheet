@@ -19,8 +19,7 @@ Meteor.methods({
 
       delete doc[options.collection];
 
-      if (preprocess)
-        newDoc = preprocess(doc);
+      newDoc = preprocess ? preprocess(doc) : doc;
 
       if (newDoc)
         collection.upsert({_id: newDoc._id}, newDoc);
