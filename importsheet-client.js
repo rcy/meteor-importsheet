@@ -25,7 +25,8 @@ Template.importSheetUI.events({
   'click .import': function (ev, tpl) {
     var $textarea = $(tpl.find('textarea')),
         str = $textarea.val(),
-        parsed = Papa.parse(str, {delimiter: "\t", header: true, dynamicTyping: true});
+        parsed = Papa.parse(str.replace(/"/g, '__QUOTE__'),
+                            {delimiter: "\t", header: true, dynamicTyping: true});
 
     Meteor.call('importSheet', {collection: Session.get('canImport').collection, data: parsed.data}, function (err, result) {
       if (err) {

@@ -20,6 +20,11 @@ Meteor.methods({
       delete doc[options.collection];
       delete doc[''];
 
+      _.each(doc, function (v,k) {
+        if (typeof v === 'string')
+          doc[k] = v.replace(/__QUOTE__/g, '"');
+      });
+
       newDoc = preprocess ? preprocess(doc) : doc;
 
       if (newDoc)
