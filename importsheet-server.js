@@ -18,6 +18,7 @@ Meteor.methods({
       var newDoc;
 
       delete doc[options.collection];
+      delete doc[''];
 
       newDoc = preprocess ? preprocess(doc) : doc;
 

@@ -1,7 +1,7 @@
 Package.describe({
   name: 'rcy:importsheet',
   summary: ' /* Fill me in! */ ',
-  version: '0.0.2',
+  version: '0.0.3',
   git: ' /* Fill me in! */ '
 });
 
